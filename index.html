@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form</title>
+</head>
+<body>
+	<!-- Чобану Елена, ДЗ №3 -->
+	<form action="https://fom.in.ua/echo" method="POST">
+		<!-- 1 Заголовок фильма* -->
+		<label for="film-name">
+			Название фильма:
+		</label>
+		<br>		
+		<input type="text" name="film-name" id="film-name" placeholder="Введите название" required>
+		<br>
+		<br>
+		<!-- 2 Возможность прикрепить обложку фильма -->
+		<label for="film-foto">
+			Обложка фильма:
+		</label>
+		<br>
+		<input type="file" name="film-foto" id="film-foto">
+		<br>
+		<br>
+		<!-- 3 Указать продолжительность фильма -->
+		<label>
+			Продолжительность:
+			<br>
+			<input type="time" name="time">
+		</label>
+		<br>
+		<br>
+		<!-- 4 выставить жанр(ы) из комедия / триллер / драма / боевик / фантастика -->
+		<fieldset>
+			<legend>
+				Жанр(ы):
+			</legend>
+			<label>
+				Комедия				
+				<input type="checkbox" name="genre" value="comedy">
+			</label>			
+			<br>
+			<label>
+				Триллер
+				<input type="checkbox" name="genre" value="triller">
+			</label>
+			<br>
+			<label>
+				Драма
+				<input type="checkbox" name="genre" value="drama">
+			</label>
+			<br>
+			<label>
+				Боевик
+				<input type="checkbox" name="genre" value="action">
+			</label>
+			<br>
+			<label>
+				Фантастика
+				<input type="checkbox" name="genre" value="fantazy">
+			</label>							
+			<br>
+		</fieldset>
+		<br>
+		<!-- 5 выбрать для какого возраста фильм (от 0 до 10 или от 10 до 18 или 18+) -->
+		<fieldset>
+			<legend>
+				Возрастная категория:
+			</legend>
+			<label>
+				0-10
+				<input type="radio" name="age" value="0-10"> 
+			</label>
+			<br>
+			<label>
+				10-18
+				<input type="radio" name="age" value="10-18">
+			</label>
+			<br>
+			<label>
+				18+
+				<input type="radio" name="age" value="18+">
+			</label>
+		</fieldset>	
+		<br>
+		<!-- 6 выставить ссылку на википедию или другой ресурс на этот фильм -->
+		<label>
+			Ссылка на статью о фильме:
+			<br>
+			<input type="url" name="url" placeholder="Укажите url">
+		</label>
+		<br>
+		<br>
+		<!-- 7 выставить дату выхода в прокат -->
+		<label>
+			Дата выхода в прокат:
+			<br>
+			<input type="date" name="date">
+		</label>
+		<br>
+		<br>
+		<!-- 8 выставить рейтинг (от 1 до 10) -->
+		<label>
+			Рейтинг:
+			<br>
+			<input type="range" name="range" min="0" max="10" step="1" id="range">			
+		</label>
+		<output id="output"></output>
+		<br>
+		<br>
+		<!-- 9 написать превью к этому фильму -->
+		<label for="description">
+			Превью к фильму:
+		</label>
+		<br>
+		<textarea name="description" id="description" placeholder="Введите описание фильма"></textarea>
+		<br>
+		<br>
+		<!-- 10 выбрать из выпадающего списка язык фильма (из 3 любых) -->
+		<label for="lang">
+			Язык озвучки:
+		</label>
+		<br>
+		<select name="lang" id="lang">
+			<option value="en">Английский</option>
+			<option value="uk">Украинский</option>
+			<option value="ru">Русский</option>
+		</select>
+		<br>
+		<br>
+		<!-- 11 так же на сервер должна передаться строка "today" с датой сдачи ДЗ, но так, что бы пользователь не знал -->
+		<input type="hidden" name="today" value="25.11.2021">
+		<!-- 12 должна быть возможность очистить форму -->
+		<button type="reset">
+			Reset
+		</button>
+		<button type="submit">
+			Send form
+		</button>
+	</form>
+	<script>
+		const range = document.querySelector('#range');
+		const output = document.querySelector('#output');
+		range.addEventListener('input', (e) => {
+			output.textContent = e.target.value;
+		})
+	</script>
+</body>
+</html>
